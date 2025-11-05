@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - BIT315 Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h1>Heyy, Welcome to My Portfolio</h1>
+    <p id="datetime"></p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Academic Results ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="year1.html">Year 1</a></li>
+          <li><a href="year2.html">Year 2</a></li>
+          <li><a href="year3.html">Year 3</a></li>
+          <li><a href="year4.html">Year 4</a></li>
+        </ul>
+      </li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="Pets.html">Pets</a></li>
+      <li><a href="login.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <br>
+  <br>
+    <section class="slideshow-container">
+      <div class="mySlides fade"><img src="slide1.jpg.jpg" alt="Slide 1"></div>
+      <div class="mySlides fade"><img src="slide2.jpg.jpg" alt="Slide 2"></div>
+      <div class="mySlides fade"><img src="slide3.jpg.jpg" alt="Slide 3"></div>
+      <div class="mySlides fade"><img src="slide4.jpg.jpg" alt="Slide 4"></div>
+      <div class="mySlides fade"><img src="slide5.jpg.jpg" alt="Slide 5"></div>
+      <div class="mySlides fade"><img src="slide6.jpg.jpg" alt="Slide 6"></div>
+      <div class="mySlides fade"><img src="slide7.jpg.jpg" alt="Slide 7"></div>
+      <div class="mySlides fade"><img src="slide8.jpg.jpg" alt="Slide 8"></div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+      </div>
+    </section>
+    <section class="profile">
+      <h2>About Me</h2>
+      <img src="Me.jpg.jpg" alt="My Profile Picture" width="200">
+      <p>
+        Hi there! I'm Victory Tadiwanashe Majuru. I enjoy mixing creativity with problem solving. I like experimenting with new ideas in IT, mostly the design space, as well as business to build projects that are both fun and useful, and of course for all my IT-girlies! This portfolio is a peek into what I am learning and creating as I grow my skills and explore what I can do in tech. I hope you enjoy going through my website. THANK YOU! :)
+      </p>
+    </section>
+
+    <section class="intro-video">
+      <h2><center>Introduction Video</center></h2>
+      <center>
+        <video controls width="300" class="video-player">
+          <source src="introvideo.MP4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </center>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Victory Tadiwanashe Majuru </p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      for (let i = 0; i < dots.length; i++) dots[i].className = dots[i].className.replace(" active", "");
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 5000);
+    }
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      showSlides();
+    }
+
+    function currentSlide(n) {
+      slideIndex = n - 1;
+      showSlides();
+    }
+
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const time = now.toLocaleTimeString();
+      document.getElementById('datetime').innerHTML = now.toLocaleDateString(undefined, options) + ' | ' + time;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html lang="English"
+<head>
+<meta charset+"UTF-8">
+<meta name="viewpoint" content="width=devicewidth,initial scale=1.0">
+
+<title> BIT23221157 Victory Tadiwanashe Majuru- My Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script defer>
+  function validateLogin(event) {
+    event.preventDefault(); 
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMessage = document.getElementById("error-message");
+
+    errorMessage.textContent = "";
+
+    if (username === "" || password === "") {
+      errorMessage.textContent = " No, try again. Both fields are required.";
+      return;
+    }
+
+    
+    if (username.length < 4) {
+      errorMessage.textContent = " Username must be at least 4 characters, try again.";
+      return;
+    }
+
+    if (password.length < 6) {
+      errorMessage.textContent = " Try again. Password must be at least 6 characters.";
+      return;
+    }
+
+    window.location.href = "Home.html";
+  }
+</script>
+
+</head>
+<body>
+<div class = "login-container">
+</h1>LOGIN</h1>
+<form id= "loginForm" onsubmit = "validateLogin(event)">
+<div class="form-group">
+<label for="username">Username:</label>
+<input type="text" id="username" placeholder="Enter username">
+</div>
+<div class="form-group">
+<label for="password">Password:</label>
+<input type="password" id="password" placeholder="Enter password">
+</div>
+<div class="form-group checkbox">
+<input type="checkbox" id="rememberMe">
+<label for="rememberMe">Remember Me</label>
+</div>
+<button type="submit">Login</button>
+<p id="error-message" class="error"></p>
+</form>
+</div>
+</body>
+</html>
